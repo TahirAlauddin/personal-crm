@@ -1,3 +1,6 @@
+import Navbar from "@/components/layouts/Navbar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layouts/Sidebar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -28,7 +31,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <AppSidebar />
+          <main className="w-full">
+            <Navbar>
+              <SidebarTrigger />
+            </Navbar>
+            {children}
+          </main>
+        </SidebarProvider>
       </body>
     </html>
   );
