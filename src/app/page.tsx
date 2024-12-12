@@ -1,12 +1,22 @@
-import Image from "next/image";
 import StatCard from "../components/dashboard/StatCard";
-
+import UpcomingAgenda from '../components/UpcomingAgenda'
 export default function Home() {
+    
+  
   return (
-    <div className="flex">
-      <StatCard title="My Title" value={123}></StatCard>
-      <StatCard title="My Title" value={13}></StatCard>
-      <StatCard title="My Title" value={7}></StatCard>
+    <div>
+      <div className="border-b-[1px] my-2">
+        <h1 className="mx-3 my-2 font-semibold text-lg">Dashboard</h1>
+      </div>
+      <div className="flex flex-wrap gap-3 m-3">
+        <StatCard title="Email Sent" value="1,461 Mail" ></StatCard>
+        <StatCard title="Active Company" value="23 Company" ></StatCard>
+        <StatCard title="Total Contact" value="652 Contacts" ></StatCard>
+        <StatCard title="Ongoing Task" value="9 Task" ></StatCard>
+      </div>
+      <div>
+        <UpcomingAgenda></UpcomingAgenda>
+      </div>
     </div>
    
   )

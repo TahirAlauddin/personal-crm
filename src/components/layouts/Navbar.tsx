@@ -1,3 +1,5 @@
+import Image from "next/image";
+import SearchBox from "../SearchBox";
 
 interface MyComponentProps {
   children: React.ReactNode;
@@ -5,9 +7,10 @@ interface MyComponentProps {
 
 export default function Navbar({children}: MyComponentProps) {
     return (
-      <div className="p-4 bg-gray-800 text-white shadow">
+      <div className="px-4 py-2 text-white shadow relative z-10">
         {children} {/* This is used for Sidebar Toggle Button */}
-        <h1 className="text-lg font-bold">Simple CRM</h1>
+        <SearchBox />
+
       </div>
     );
   }

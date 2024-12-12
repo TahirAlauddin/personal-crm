@@ -5,6 +5,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+});
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -29,13 +37,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full">
             <Navbar>
-              <SidebarTrigger />
+              <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2] absolute -left-4"/>
             </Navbar>
             {children}
           </main>
