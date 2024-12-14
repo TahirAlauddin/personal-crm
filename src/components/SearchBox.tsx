@@ -5,7 +5,7 @@ import React from "react";
 
 const SearchBox = () => {
   return (
-    <div className="relative border-[#AFAFAF] border-2 rounded-md pl-12 px-2 py-1 w-1/3 ">
+    <div className="relative border-[#AFAFAF] border-2 rounded-md pl-12 px-2 py-1 w-1/4">
       <Search color="#AFAFAF" className="absolute w-[20px] h-[20px]  top-[6px] left-0 z-10 ml-4" />
       <input
         className="focus:outline-none w-full pr-[80px] text-black "

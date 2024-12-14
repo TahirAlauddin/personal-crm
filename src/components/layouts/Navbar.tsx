@@ -2,12 +2,12 @@ import Image from "next/image";
 import SearchBox from "../SearchBox";
 
 interface MyComponentProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function Navbar({children}: MyComponentProps) {
     return (
-      <div className="px-4 py-2 text-white shadow relative z-10">
+      <div className="flex items-center ml-4 w-full h-full gap-4 z-10">
         {children} {/* This is used for Sidebar Toggle Button */}
         <SearchBox />
 

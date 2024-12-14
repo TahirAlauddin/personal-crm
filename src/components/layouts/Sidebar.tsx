@@ -95,7 +95,7 @@ const items = {
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader className="shadow h-[51.8px] p-0 pl-4">
+      <SidebarHeader className="bg-[#F2F2F2] shadow h-[51.8px] p-0 pl-4">
         <Image src={"/logo.png"} alt="Logo" width={50} height={50}></Image>
       </SidebarHeader>      
       <SidebarContent>
