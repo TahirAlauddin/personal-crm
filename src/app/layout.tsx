@@ -5,12 +5,16 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { Inter } from 'next/font/google';
+import { Inter } from "next/font/google";
+
+// Radix UI
+// import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
 
 const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 const geistSans = localFont({
@@ -39,15 +43,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="w-full">
-            <Navbar>
-              <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2] absolute -left-4"/>
-            </Navbar>
-            {children}
-          </main>
-        </SidebarProvider>
+        <Theme>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full">
+              <Navbar>
+                <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2] absolute -left-4" />
+              </Navbar>
+              {children}
+            </main>
+          </SidebarProvider>
+        </Theme>
       </body>
     </html>
   );
