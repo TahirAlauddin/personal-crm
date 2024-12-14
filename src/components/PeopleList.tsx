@@ -3,7 +3,7 @@ import React from "react";
 import SearchBox from "./SearchBox";
 import Dropdown from "./Dropdown";
 import { SortAscIcon } from "lucide-react";
-import { teachersData as data } from "@/lib/data";
+import { peopleData as data } from "@/lib/data";
 type Person = {
   photo: string;
   id: number;
