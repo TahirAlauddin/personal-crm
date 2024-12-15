@@ -6,9 +6,9 @@ const Dropdown = ({ buttonText = "Options" }) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <Button variant="outline" className="flex items-center gap-2 border-2 rounded-sm px-2 py-1">
-          {buttonText}
+        <Button variant="outline" className="border-black font-medium flex items-center gap-2 border-[1.5px] rounded-sm px-2 py-1">
           <DropdownMenu.TriggerIcon />
+          {buttonText}
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>

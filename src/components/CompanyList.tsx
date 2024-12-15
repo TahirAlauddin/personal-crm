@@ -18,7 +18,7 @@ type Company = {
 const CompanyList = () => {
   const renderRow = (item: Company) => {
     return (
-      <tr className="flex items-center gap-4 p-2 justify-evenly border-2 rounded-md" key={item.id}>
+      <tr className="flex items-center gap-4 p-2 justify-between border-2 rounded-md" key={item.id}>
         <td className="flex gap-2">
           <Image
             src={item.photo}
@@ -38,18 +38,18 @@ const CompanyList = () => {
   };
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between">
-        <h3>People</h3>
-        <div className="flex justify-end">
+      <div className="m-2 items-center flex justify-between">
+        <h3 className="font-semibold text-xl">People</h3>
+        <div className="gap-2 flex justify-end">
           <SearchBox />
-          <Dropdown></Dropdown>
-          <Dropdown></Dropdown>
+          <Dropdown buttonText="Sort By"></Dropdown>
+          <Dropdown buttonText="Filter"></Dropdown>
         </div>
       </div>
       <div>
         <table className="w-full rounded-md">
           <thead>
-            <tr className="flex gap-4 p-2 justify-evenly border-2 rounded-sm mb-2 text-secondaryGray">
+            <tr className="flex gap-4 p-2 justify-between border-2 rounded-sm mb-2 text-secondaryGray">
               <th className="flex text-small font-light">
                 <span>Name</span>
                 <SortAscIcon color="#727272" />
