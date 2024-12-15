@@ -5,22 +5,28 @@ import React from "react";
 
 const SearchBox = () => {
   return (
-    <div className="relative border-[#AFAFAF] border-2 rounded-md pl-12 px-2 py-1 w-1/4">
-      <Search color="#AFAFAF" className="absolute w-[20px] h-[20px]  top-[6px] left-0 z-10 ml-4" />
-      <input
-        className="focus:outline-none w-full pr-[80px] text-black "
-        placeholder="Search"
-      />
-      <CommandIcon
-        color="#727272"
-        className="absolute top-1 right-8 mr-1 p-1 z-10 bg-[#F2F2F2]"
-      />
-      <FontAwesomeIcon
-        color="#727272"
-        icon={faF}
-        className="absolute top-1 right-1 z-10 p-1 w-[24px] h-[24px] bg-[#F2F2F2]"
-      />
-    </div>
+    // pl-12 
+      <div className="flex border-[#AFAFAF] border-2 rounded-md px-2 py-1 gap-2">
+        <Search
+          color="#AFAFAF"
+          width={20}
+          height={20}
+          className="ml-4"
+        />
+        <input
+          className="flex-1 focus:outline-none w-full text-black bg-transparent"
+          placeholder="Search"
+        />
+        <CommandIcon
+          color="#727272"
+          className="mr-1 p-1 bg-[#F2F2F2]"
+        />
+        <FontAwesomeIcon
+          color="#727272"
+          icon={faF}
+          className="p-1 w-[24px] h-[24px] bg-[#F2F2F2]"
+        />
+      </div>
   );
 };
 
