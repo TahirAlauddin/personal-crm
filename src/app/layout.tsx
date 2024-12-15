@@ -4,7 +4,7 @@ import {
   SidebarTrigger,
   SidebarInset,
 } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/layouts/Sidebar";
+import { Sidebar } from "@/components/layouts/Sidebar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -49,10 +49,10 @@ export default function RootLayout({
       >
         <Theme>
           <SidebarProvider>
-            <AppSidebar />
+            <Sidebar />
             <main className="w-full">
               <SidebarInset>
-                <header className="shadow bg-[#F2F2F2] sticky overflow-hidden top-0 h-14 shrink-0 items-center transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                <header className="bg-white shadow sticky overflow-hidden top-0 h-14 shrink-0 items-center transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
                     <Navbar>
                       <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2]" />
                     </Navbar>
