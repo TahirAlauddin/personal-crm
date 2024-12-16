@@ -1,7 +1,8 @@
 import StatCard from "../components/dashboard/StatCard";
 import UpcomingAgenda from "../components/UpcomingAgenda";
 import EmailOpenChart from "../components/EmailOpenChart";
-
+import CompanyList from "@/components/CompanyList";
+import PeopleList from "@/components/PeopleList";
 export default function Home() {
   return (
     <div>
@@ -17,6 +18,10 @@ export default function Home() {
       <div className="flex">
         <UpcomingAgenda />
         <EmailOpenChart />
+      </div>
+      <div className="flex flex-col gap-8">
+        <PeopleList />
+        <CompanyList />
       </div>
     </div>
   );

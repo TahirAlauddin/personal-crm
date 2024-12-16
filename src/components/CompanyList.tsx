@@ -19,13 +19,13 @@ const CompanyList = () => {
   const renderRow = (item: Company) => {
     return (
       <tr className="flex items-center gap-4 p-2 justify-between border-2 rounded-md" key={item.id}>
-        <td className="flex gap-2">
+        <td className="flex gap-2 items-center">
           <Image
             src={item.photo}
             alt=""
-            width={40}
-            height={40}
-            className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+            width={20}
+            height={20}
+            className="md:hidden xl:block w-8 h-8 rounded-full object-cover"
           ></Image>
           <div>{item.name}</div>
         </td>
@@ -39,7 +39,7 @@ const CompanyList = () => {
   return (
     <div className="flex flex-col">
       <div className="m-2 items-center flex justify-between">
-        <h3 className="font-semibold text-xl">People</h3>
+        <h3 className="font-semibold text-xl">Companies</h3>
         <div className="gap-2 flex justify-end">
           <SearchBox />
           <Dropdown buttonText="Sort By"></Dropdown>

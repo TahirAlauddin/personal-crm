@@ -1,4 +1,5 @@
 import { DropdownMenu,  Button } from "@radix-ui/themes";
+import ButtonWithIcon from "./ButtonWithIcon";
 
 import React from 'react'
 
@@ -6,10 +7,7 @@ const Dropdown = ({ buttonText = "Options" }) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <Button variant="outline" className="border-black font-medium flex items-center gap-2 border-[1.5px] rounded-sm px-2 py-1">
-          <DropdownMenu.TriggerIcon />
-          {buttonText}
-        </Button>
+        <ButtonWithIcon buttonText={buttonText} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
         <DropdownMenu.Item shortcut="⌘ E">Edit</DropdownMenu.Item>

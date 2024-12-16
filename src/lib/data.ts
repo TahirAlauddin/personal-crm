@@ -16,7 +16,7 @@ export const peopleData = [
     location: "123 Main St, Anytown, USA",
     company: "Acme Inc.",
     category: "Software Engineer",
-    gender: "Male"
+    gender: "Female"
 
 
   },
