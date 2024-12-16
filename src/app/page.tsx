@@ -3,9 +3,11 @@ import UpcomingAgenda from "../components/UpcomingAgenda";
 import EmailOpenChart from "../components/EmailOpenChart";
 import CompanyList from "@/components/CompanyList";
 import PeopleList from "@/components/PeopleList";
+import CompanyCategoryChart from "@/components/CompanyCategoryChart";
+
 export default function Home() {
   return (
-    <div>
+    <>
       <div className="border-b-[1px] my-2">
         <h1 className="mx-3 my-2 font-semibold text-lg">Dashboard</h1>
       </div>
@@ -15,14 +17,17 @@ export default function Home() {
         <StatCard title="Total Contact" value="652 Contacts"></StatCard>
         <StatCard title="Ongoing Task" value="9 Task"></StatCard>
       </div>
-      <div className="flex">
+      <div className="flex flex-row max-lg:flex-col">
         <UpcomingAgenda />
         <EmailOpenChart />
       </div>
       <div className="flex flex-col gap-8">
         <PeopleList />
-        <CompanyList />
+        <div className="flex">
+          <CompanyList />
+          <CompanyCategoryChart />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

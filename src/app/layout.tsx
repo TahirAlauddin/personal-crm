@@ -50,21 +50,19 @@ export default function RootLayout({
         <Theme>
           <SidebarProvider>
             <Sidebar />
-            <main className="w-full">
-              <SidebarInset>
-                <header className="bg-white shadow sticky overflow-hidden top-0 h-14 shrink-0 items-center transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-                    <Navbar>
-                      <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2]" />
-                    </Navbar>
-                </header>
-                <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-                  <div className="grid auto-rows-min gap-4 md:grid-cols-3"></div>
-                  <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-                    {children}
-                  </div>
+            <SidebarInset className="lg:w-[80vw] md:w-[75vw] sm:w-[70vw] w-[20vw] max-sm:[20vw]">
+              <header className="bg-white shadow sticky overflow-hidden z-10 top-0 h-14 shrink-0 items-center transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                <Navbar>
+                  <SidebarTrigger className="text-[#AFAFAF] bg-[#F2F2F2]" />
+                </Navbar>
+              </header>
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="grid auto-rows-min gap-4 md:grid-cols-3"></div>
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
+                  {children}
                 </div>
-              </SidebarInset>
-            </main>
+              </div>
+            </SidebarInset>
           </SidebarProvider>
         </Theme>
       </body>
