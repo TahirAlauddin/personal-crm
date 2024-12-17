@@ -3,7 +3,7 @@ import React from "react";
 import SearchBox from "./SearchBox";
 import Dropdown from "./Dropdown";
 import { MailIcon, MapPinIcon, PhoneIcon, SortAscIcon } from "lucide-react";
-import { peopleData as data } from "@/lib/data";
+import { peopleData as data } from "@/lib/data/people";
 import { TagLabel } from "./TagLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

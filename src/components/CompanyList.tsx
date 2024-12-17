@@ -2,8 +2,7 @@ import Image from "next/image";
 import React from "react";
 import SearchBox from "./SearchBox";
 import Dropdown from "./Dropdown";
-import { SortAscIcon } from "lucide-react";
-import { companiesData as data } from "@/lib/data";
+import { companiesData as data } from "@/lib/data/companies";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
