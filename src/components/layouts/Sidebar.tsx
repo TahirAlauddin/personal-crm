@@ -81,12 +81,12 @@ const items = {
   SETTINGS: [
     {
       title: "Integrations",
-      url: "#",
+      url: "/integrations",
       icon: MenuSquare,
     },
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: Settings,
     },
   ]
