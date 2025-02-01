@@ -1,29 +1,89 @@
-## Simple CRM
----
+# Full Stack CRM Application
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A modern Customer Relationship Management (CRM) system built with Next.js and NestJS.
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This monorepo contains both frontend and backend applications for a comprehensive CRM solution:
 
+- **Frontend**: Built with Next.js, providing a modern and responsive user interface
+- **Backend**: Powered by NestJS, delivering a robust and scalable API
+
+## Repository Structure
+
+
+├── frontend/ # Next.js frontend application
+└── backend/ # NestJS backend application
 ```bash
-npm run dev
-# or
-yarn dev
+git clone <repository-url>
+cd crm-application
+```bash
+
+Navigate to backend directory
+```bash
+cd backend
+```
+Install dependencies
+```bash
+npm install
+```
+Create .env file and configure environment variables
+```bash
+cp .env.example .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the development server
+```bash
+npm run start:dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to frontend directory
+```bash
+cd frontend
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- User authentication and authorization
+- Customer management
+- Contact management
+- Deal tracking
+- Task management
+- Reporting and analytics
+- RESTful API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technology Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS (or your CSS framework)
+- Redux/Context API for state management
+
+### Backend
+- NestJS
+- TypeScript
+- PostgreSQL
+- TypeORM
+- JWT Authentication
+- REST API
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Tahir Ali - [@tahiralauddin](https://twitter.com/tahiralauddin) - tahiralauddin7@gmail.com
+
+Project Link: [https://github.com/Tahiralauddin/personal-crm](https://github.com/Tahiralauddin/personal-crm)
