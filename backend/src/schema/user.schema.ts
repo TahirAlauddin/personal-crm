@@ -1,6 +1,8 @@
 // let's define user schema
 
-import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
+import { Schema, SchemaFactory, Prop } from "@nestjs/mongoose";
+import mongoose from "mongoose";
+import { Location } from "./location.schema";
 
 @Schema()
 export class User {
@@ -12,6 +14,27 @@ export class User {
 
   @Prop()
   password: string;
+
+  @Prop()
+  phone: string;
+
+  @Prop()
+  category: string; // Employee, Customer, Partner
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "Location" })
+  location: Location;
+
+  @Prop()
+  gender: string;
+
+  @Prop()
+  avatar: string;
+
+  @Prop()
+  createdAt: Date;
+
+  @Prop()
+  updatedAt: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
