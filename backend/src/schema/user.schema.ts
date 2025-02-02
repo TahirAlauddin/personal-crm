@@ -1,8 +1,10 @@
 // let's define user schema
 
 import { Schema, SchemaFactory, Prop } from "@nestjs/mongoose";
-import mongoose from "mongoose";
+import mongoose, { HydratedDocument } from "mongoose";
 import { Location } from "./location.schema";
+
+export type UserDocument = HydratedDocument<User>;
 
 @Schema()
 export class User {
