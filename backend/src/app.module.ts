@@ -6,9 +6,10 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { UsersModule } from './users/users.module';
 import { CompanyModule } from './company/company.module';
 import { TasksModule } from './tasks/tasks.module';
+import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
-  imports: [AuthModule, MongooseModule.forRoot(process.env.MONGO_URI || ""), UsersModule, CompanyModule, TasksModule],
+  imports: [AuthModule, MongooseModule.forRoot(process.env.MONGO_URI || ""), UsersModule, CompanyModule, TasksModule, ContactsModule],
   controllers: [AppController],
   providers: [AppService],
 })
