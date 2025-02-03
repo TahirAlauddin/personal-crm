@@ -20,7 +20,8 @@ export class Contact {
   @Prop()
   status: string;
 
-  @Prop()
+  // Auto generated fields
+  @Prop({ default: Date.now })
   createdAt: Date;
 
   @Prop()
