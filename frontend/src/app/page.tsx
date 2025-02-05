@@ -5,7 +5,7 @@ import CompanyList from "@/components/CompanyList";
 import PeopleList from "@/components/PeopleList";
 import CompanyCategoryChart from "@/components/CompanyCategoryChart";
 
-export default function Home() {
+const Home = ()  =>{
   return (
     <>
       <div className="border-b-[1px] my-2">
@@ -31,3 +31,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;
