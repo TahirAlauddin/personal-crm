@@ -30,7 +30,8 @@ export class ContactsService {
     );
     if (contact) {
       contact.updatedAt = new Date();
-      return contact;
+      await contact.save();
+      return await this.contactModel.findById(id);
     }
     return null;
   }
