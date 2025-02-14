@@ -7,6 +7,7 @@ import { UsersModule } from "./users/users.module";
 import { CompanyModule } from "./company/company.module";
 import { TasksModule } from "./tasks/tasks.module";
 import { ContactsModule } from "./contacts/contacts.module";
+import { LocationModule } from "./location/location.module";
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ContactsModule } from "./contacts/contacts.module";
     CompanyModule,
     TasksModule,
     ContactsModule,
+    LocationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
