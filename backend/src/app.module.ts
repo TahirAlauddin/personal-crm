@@ -8,6 +8,8 @@ import { CompanyModule } from "./company/company.module";
 import { TasksModule } from "./tasks/tasks.module";
 import { ContactsModule } from "./contacts/contacts.module";
 import { LocationModule } from "./location/location.module";
+import { MailModule } from "./mail/mail.module";
+import { MeetingsModule } from "./meetings/meetings.module";
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { LocationModule } from "./location/location.module";
     TasksModule,
     ContactsModule,
     LocationModule,
+    MailModule,
+    MeetingsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
