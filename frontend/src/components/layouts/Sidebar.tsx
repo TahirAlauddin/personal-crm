@@ -13,17 +13,17 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  Home,
   Settings,
-  User2Icon,
   Mail,
-  PaperclipIcon,
   Notebook,
-  Briefcase,
   Contact2Icon,
-  LineChart,
   MenuSquare,
   Calendar,
+  ChartPie,
+  ChartLine,
+  Bell,
+  Clipboard,
+  BriefcaseBusiness
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,12 +33,12 @@ const items = {
     {
       title: "Dashboard",
       url: "/",
-      icon: Home,
+      icon: ChartPie,
     },
     {
       title: "Notifications",
       url: "/notifications",
-      icon: User2Icon,
+      icon: Bell,
     },
     {
       title: "Notes",
@@ -48,7 +48,7 @@ const items = {
     {
       title: "Tasks",
       url: "#",
-      icon: PaperclipIcon,
+      icon: Clipboard,
     },
     {
       title: "Emails",
@@ -65,7 +65,7 @@ const items = {
     {
       title: "Analytics",
       url: "#",
-      icon: LineChart,
+      icon: ChartLine,
     },
     {
       title: "Contacts",
@@ -75,7 +75,7 @@ const items = {
     {
       title: "Companies",
       url: "#",
-      icon: Briefcase,
+      icon: BriefcaseBusiness,
     },
   ],
   SETTINGS: [
@@ -98,7 +98,7 @@ export function Sidebar() {
       <SidebarHeader className="shadow h-14 p-0 pl-4">
         <Image src={"/logo.png"} alt="Logo" width={50} height={50}></Image>
       </SidebarHeader>      
-      <SidebarContent>
+      <SidebarContent className="text-[#727272] hover:text-black">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
