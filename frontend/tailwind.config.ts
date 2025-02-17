@@ -60,7 +60,21 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-			secondaryGray: '#727272'
+			secondaryGray: '#727272',
+
+			neutral: {
+				default: "var(--neutral)",
+				'10': "var(--neutral-10)",
+				'20': "var(--neutral-20)",
+				'30': "var(--neutral-30)",
+				'40': "var(--neutral-40)",
+				'50': "var(--neutral-50)",
+				'60': "var(--neutral-60)",
+				'70': "var(--neutral-70)",
+				'80': "var(--neutral-80)",
+				'90': "var(--neutral-90)",
+				'100': "var(--neutral-100)",
+			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
