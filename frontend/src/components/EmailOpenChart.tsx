@@ -54,40 +54,40 @@ const EmailOpenChart = () => {
         </div>
       </div>
       <div>
-        <h4 className="text-secondaryGray text-xs">Average Open rate</h4>
-        <BarChart
-          margin={{ top: 20, bottom: 20, left: 20, right: 20 }}
-          width={730}
-          height={250}
-          data={data}
-        >
-          <CartesianGrid vertical={false} strokeDasharray="3 3" />
-          <XAxis
-            axisLine={false}
-            tick={{ fill: "#000000" }}
-            tickLine={false}
-            dataKey="name"
-            tickMargin={20}
-          />
-          <YAxis
-            domain={[-10, 100]}
-            ticks={[0, 25, 50, 75, 100]}
-            tickMargin={20}
-            axisLine={false}
-            tick={{ fill: "#000000" }}
-            tickLine={false}
-          />
-          <Tooltip />
-          <Bar
-            startOffset={-100}
-            fill="#D8D8D8"
-            barSize={30}
-            radius={[5, 5, 2, 2]}
-            activeBar={<Rectangle fill="#000000" />}
-            dataKey="value"
-            minPointSize={10}
-          />
-        </BarChart>
+        <h4 className="text-neutral-80 text-xs">Average Open rate</h4>
+        <ResponsiveContainer width="100%" height={250}>
+          <BarChart
+            margin={{ top: 20, bottom: 20, left: 20, right: 20 }}
+            data={data}
+          >
+            <CartesianGrid vertical={false} strokeDasharray="3 3" />
+            <XAxis
+              axisLine={false}
+              tick={{ fill: "#000000" }}
+              tickLine={false}
+              dataKey="name"
+              tickMargin={20}
+            />
+            <YAxis
+              domain={[-10, 100]}
+              ticks={[0, 25, 50, 75, 100]}
+              tickMargin={20}
+              axisLine={false}
+              tick={{ fill: "#000000" }}
+              tickLine={false}
+            />
+            <Tooltip />
+            <Bar
+              startOffset={-100}
+              fill="#D8D8D8"
+              barSize={30}
+              radius={[5, 5, 2, 2]}
+              activeBar={<Rectangle fill="#000000" />}
+              dataKey="value"
+              minPointSize={10}
+            />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
