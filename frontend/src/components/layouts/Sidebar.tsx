@@ -96,7 +96,7 @@ export function Sidebar() {
   return (
     <SidebarPrimitive>
       <SidebarHeader className="shadow h-14 p-0 pl-4">
-        <Image src={"/logo.png"} alt="Logo" width={50} height={50}></Image>
+        <Image src={"/logo.webp"} alt="Logo" width={50} height={50}></Image>
       </SidebarHeader>      
       <SidebarContent className="text-neutral-80">
         <SidebarGroup>
