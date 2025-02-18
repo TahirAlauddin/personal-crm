@@ -98,12 +98,12 @@ export function Sidebar() {
       <SidebarHeader className="shadow h-14 p-0 pl-4">
         <Image src={"/logo.png"} alt="Logo" width={50} height={50}></Image>
       </SidebarHeader>      
-      <SidebarContent className="text-neutral-80 hover:text-black">
+      <SidebarContent className="text-neutral-80">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
               {items["MAIN"].map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem className="hover:text-black" key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <item.icon />
@@ -122,7 +122,7 @@ export function Sidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items["DATABASE"].map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem className="hover:text-black" key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <item.icon />
@@ -141,7 +141,7 @@ export function Sidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items["SETTINGS"].map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem className="hover:text-black" key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <item.icon />
