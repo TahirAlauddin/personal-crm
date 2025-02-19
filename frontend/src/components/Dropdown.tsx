@@ -3,10 +3,10 @@ import ButtonWithIcon from "./ButtonWithIcon";
 
 import React from 'react'
 
-const Dropdown = ({ buttonText = "Options" }) => {
+const Dropdown = ({ className="", buttonText = "Options" }) => {
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
+      <DropdownMenu.Trigger className={className}>
         <ButtonWithIcon buttonText={buttonText} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
