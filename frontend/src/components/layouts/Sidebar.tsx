@@ -140,7 +140,6 @@ export function Sidebar() {
         <SidebarSeparator />
 
         <SidebarGroup>
-          <SidebarGroupLabel></SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items["SETTINGS"].map((item) => (
