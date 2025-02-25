@@ -19,6 +19,7 @@ export function AppsSettings() {
         </Button>
       </div>
 
+      {/* Startup settings */}
       <SettingsSection
         title="Startup Settings"
         description="Choose what to show when Apps starts or when you switch workspaces."
@@ -26,6 +27,7 @@ export function AppsSettings() {
         {/* Add startup settings controls here */}
       </SettingsSection>
 
+      {/* Timezone settings */}
       <SettingsSection title="Date and Time">
         <select name="timezone" id="timezone"></select>
         <SettingsGroup
@@ -41,6 +43,7 @@ export function AppsSettings() {
               </div>
             </div>
 
+            {/* Time zone dropdown */}
             <Dropdown
               buttonText="(GMT-05:00) (Ukraine Time)"
             ></Dropdown>
@@ -48,7 +51,9 @@ export function AppsSettings() {
         </SettingsGroup>
       </SettingsSection>
 
+      {/* Privacy settings */}
       <SettingsSection title="Privacy">
+        {/* Cookie settings */}
         <SettingsGroup
           title="Cookie Settings"
           description="Customize cookies. See Cookies Notice for details."
@@ -59,6 +64,7 @@ export function AppsSettings() {
             </Button>
           }
         />
+        {/* View history */}
         <SettingsGroup
           title="Show my view history"
           description="People with edit or full access will be able to see when you've viewed a page."
