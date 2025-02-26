@@ -16,9 +16,7 @@ import Dropdown from "../Dropdown";
 export function AppsSettings() {
   return (
     <div className="flex flex-col gap-9 p-8">
-      <div className="flex items-center justify-between">
-      </div>
-
+      
       <SettingsSection
         title="Apps Settings"
         >
