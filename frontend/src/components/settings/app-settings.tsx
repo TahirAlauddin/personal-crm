@@ -16,7 +16,6 @@ import Dropdown from "../Dropdown";
 export function AppsSettings() {
   return (
     <div className="flex flex-col gap-9 p-8">
-      
       <SettingsSection
         title="Apps Settings"
         >
@@ -47,7 +46,12 @@ export function AppsSettings() {
          <SettingsGroup
           title="Time Zone"
           description="Current time zone setting."
-          action={<Dropdown buttonText="(GMT-07:00) US/Arizona (MST)" />}
+          action={
+            <Button variant="outline">
+            (GMT-07:00) US/Arizona (MST)
+            <ChevronDown className="ml-2 h-4 w-4" />
+          </Button>
+          }
         ></SettingsGroup>
       </SettingsSection>
 
