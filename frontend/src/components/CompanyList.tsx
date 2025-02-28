@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/table";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export default function Dashboard() {
   return (
@@ -32,105 +33,107 @@ export default function Dashboard() {
       {/* Page Content */}
       <main className="flex-1 overflow-auto p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-semibold">Companies</h1>
+          <div className="flex gap-9 items-center">
+            <h1 className="text-2xl font-semibold">Companies</h1>
+
+            <div className="flex items-center gap-1">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="h-9">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2"
+                    >
+                      <path d="M17 10H3" />
+                      <path d="M21 6H3" />
+                      <path d="M21 14H3" />
+                      <path d="M17 18H3" />
+                    </svg>
+                    List
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>List</DropdownMenuItem>
+                  <DropdownMenuItem>Kanban</DropdownMenuItem>
+                  <DropdownMenuItem>Table</DropdownMenuItem>
+                  <DropdownMenuItem>Grid</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Button variant="outline" size="sm" className="h-9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mr-2"
+                >
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+                  <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+                  <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+                  <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+                </svg>
+                Kanban
+              </Button>
+
+              <Button variant="outline" size="sm" className="h-9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mr-2"
+                >
+                  <path d="M3 3h18v18H3z" />
+                  <path d="M21 12H3" />
+                  <path d="M12 3v18" />
+                </svg>
+                Table
+              </Button>
+
+              <Button variant="outline" size="sm" className="h-9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mr-2"
+                >
+                  <rect width="7" height="7" x="3" y="3" rx="1" />
+                  <rect width="7" height="7" x="14" y="3" rx="1" />
+                  <rect width="7" height="7" x="14" y="14" rx="1" />
+                  <rect width="7" height="7" x="3" y="14" rx="1" />
+                </svg>
+                Grid
+              </Button>
+            </div>
+          </div>
 
           <div className="flex items-center space-x-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="h-9">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mr-2"
-                  >
-                    <path d="M17 10H3" />
-                    <path d="M21 6H3" />
-                    <path d="M21 14H3" />
-                    <path d="M17 18H3" />
-                  </svg>
-                  List
-                  <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>List</DropdownMenuItem>
-                <DropdownMenuItem>Kanban</DropdownMenuItem>
-                <DropdownMenuItem>Table</DropdownMenuItem>
-                <DropdownMenuItem>Grid</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Button variant="outline" size="sm" className="h-9">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mr-2"
-              >
-                <path d="M8 3H5a2 2 0 0 0-2 2v3" />
-                <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
-                <path d="M3 16v3a2 2 0 0 0 2 2h3" />
-                <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
-              </svg>
-              Kanban
-            </Button>
-
-            <Button variant="outline" size="sm" className="h-9">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mr-2"
-              >
-                <path d="M3 3h18v18H3z" />
-                <path d="M21 12H3" />
-                <path d="M12 3v18" />
-              </svg>
-              Table
-            </Button>
-
-            <Button variant="outline" size="sm" className="h-9">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mr-2"
-              >
-                <rect width="7" height="7" x="3" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="14" rx="1" />
-                <rect width="7" height="7" x="3" y="14" rx="1" />
-              </svg>
-              Grid
-            </Button>
-
-            <div className="border-l h-9 mx-2"></div>
-
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="sm" className="h-9">
@@ -145,6 +148,7 @@ export default function Dashboard() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <div className="border-l h-9 mx-2"></div>
             <Button
               size="sm"
               className="h-9 bg-black text-white hover:bg-gray-800"
@@ -155,7 +159,7 @@ export default function Dashboard() {
         </div>
 
         {/* Status Filters */}
-        <div className="flex items-center mb-6 space-x-4">
+        <div className="flex items-center mb-6 gap-3">
           <StatusFilter label="All Companies" active />
           <StatusFilter label="Active" color="blue" />
           <StatusFilter label="Lead" color="orange" />
@@ -494,7 +498,12 @@ function StatusFilter({
   color?: string;
 }) {
   return (
-    <div className={`flex items-center ${active && "font-medium"}`}>
+    <div
+      className={cn(
+        "flex mx-3 my-2 items-center text-neutral-80 font-medium",
+        active ? "text-black rounded-full px-4 py-2 bg-[#F0F2F7]" : ""
+      )}
+    >
       {color && (
         <span
           className={`w-2 h-2 rounded-full mr-2 ${
