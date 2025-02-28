@@ -488,7 +488,7 @@ function NavIcon({ name }: { name: string }) {
   );
 }
 
-function StatusFilter({
+const StatusFilter = ({
   label,
   active = false,
   color = "",
@@ -496,7 +496,7 @@ function StatusFilter({
   label: string;
   active?: boolean;
   color?: string;
-}) {
+}) => {
   return (
     <div
       className={cn(
@@ -524,9 +524,9 @@ function StatusFilter({
       {label}
     </div>
   );
-}
+};
 
-function CompanyRow({
+const CompanyRow = ({
   logo,
   name,
   industry,
@@ -538,7 +538,7 @@ function CompanyRow({
   industry: string;
   location: string;
   status: string;
-}) {
+}) => {
   return (
     <TableRow>
       <TableCell>
@@ -573,9 +573,9 @@ function CompanyRow({
       </TableCell>
     </TableRow>
   );
-}
+};
 
-function StatusBadge({ status }: { status: string }) {
+const StatusBadge = ({ status }: { status: string }) => {
   const getStatusStyles = () => {
     switch (status) {
       case "active":
@@ -602,9 +602,9 @@ function StatusBadge({ status }: { status: string }) {
       {status}
     </Badge>
   );
-}
+};
 
-function GoogleLogo() {
+const GoogleLogo = () => {
   return (
     <svg
       width="16"
@@ -631,9 +631,9 @@ function GoogleLogo() {
       />
     </svg>
   );
-}
+};
 
-function SlackLogo() {
+const SlackLogo = () => {
   return (
     <svg
       width="16"
