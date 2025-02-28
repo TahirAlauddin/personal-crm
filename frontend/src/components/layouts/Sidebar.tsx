@@ -74,7 +74,7 @@ const items = {
     },
     {
       title: "Companies",
-      url: "#",
+      url: "/companies",
       icon: BriefcaseBusiness,
     },
   ],
