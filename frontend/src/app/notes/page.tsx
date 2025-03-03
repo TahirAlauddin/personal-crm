@@ -1,6 +1,19 @@
 "use client"
+
 import * as React from "react"
-import { ChevronDown, Filter, Plus, Search } from 'lucide-react'
+import { 
+Filter,
+Plus,
+Search,
+MoreVertical,
+Bold,
+Italic,
+Underline,
+AlignLeft,
+AlignCenter,
+AlignRight,
+List,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NoteCard } from "@/components/ui/notecard"
 
