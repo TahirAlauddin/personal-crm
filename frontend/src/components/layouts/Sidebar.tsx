@@ -42,7 +42,7 @@ const items = {
     },
     {
       title: "Notes",
-      url: "#",
+      url: "/notes",
       icon: Notebook,
     },
     {
