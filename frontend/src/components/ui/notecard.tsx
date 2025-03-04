@@ -5,32 +5,32 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { TagBadge } from "@/components/Tagbadge"
 import React from "react"
 import { Button } from "./button"
+import { Note } from "@/app/notes/data"
+import { cn } from "@/lib/utils"
+
+interface NoteCardProps extends Note {
+    onClick: () => void
+    className?: string
+}
 
 export const NoteCard = ({ 
     tags, 
     title, 
     content, 
-    listItems, 
-    checklistItems, 
     image, 
     author, 
-    date 
-  }: {
-    tags: { label: string, color: string }[]
-    title: string
-    content?: string
-    listItems?: string[]
-    checklistItems?: string[]
-    image?: string
-    author?: string
-    date?: string
-}) => {
+    date, 
+    listItems=null, 
+    checklistItems=null, 
+    onClick=()=>{},
+    className=""
+  }: NoteCardProps) => {
       const [isFullPreview, setIsFullPreview] = React.useState(false)
     return (
           <>
             <Card
-              className="overflow-hidden relative flex flex-col h-[350px] cursor-pointer"
-              onClick={() => setIsFullPreview(true)}
+              className={cn("overflow-hidden relative flex flex-col h-[350px] cursor-pointer", className)}
+              onClick={() => onClick ? onClick() : setIsFullPreview(true)}
             >
               <CardHeader className="p-4 pb-0">
                 <div className="flex gap-2 mb-3">
