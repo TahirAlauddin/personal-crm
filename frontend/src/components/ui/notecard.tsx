@@ -29,7 +29,7 @@ export const NoteCard = ({
     return (
           <>
             <Card
-              className={cn("overflow-hidden relative flex flex-col h-[350px] cursor-pointer", className)}
+              className={cn("overflow-hidden relative flex flex-col h-[350px] w-96 cursor-pointer", className)}
               onClick={() => onClick ? onClick() : setIsFullPreview(true)}
             >
               <CardHeader className="p-4 pb-0">
