@@ -1,0 +1,7 @@
+.ltr {
+    direction: rtl;
+}
+
+.rtl {
+    direction: ltr;
+}

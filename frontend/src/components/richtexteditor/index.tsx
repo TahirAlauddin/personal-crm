@@ -4,22 +4,26 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { HeadingNode } from "@lexical/rich-text";
+import { HeadingNode  } from "@lexical/rich-text";
+import { TextNode, LexicalCommand, $getSelection, $isRangeSelection, $getTextContent, $createTextNode } from "lexical";
 import { FontFamilyDropdown, FontSizeDropdown, AlignmentToolbar, BulletListButton } from "@/components/Toolbar";
 import { Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, List, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TagBadge } from "../Tagbadge";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { exampleTheme } from "./theme";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import "./styles.css"
 
 const initialConfig = {
   namespace: "MyEditor",
-  nodes: [HeadingNode],
+  nodes: [HeadingNode, TextNode],
   exampleTheme,
   onError(error: Error) {
     console.error(error);
   },
 };
+
 
 export default function NoteEditor({ selectedNote, setSelectedNote }: { selectedNote: number | null; setSelectedNote: (note: number | null) => void }) {
   const [editorState, setEditorState] = useState(null);
@@ -60,6 +64,7 @@ export default function NoteEditor({ selectedNote, setSelectedNote }: { selected
             <div className="p-6">
               <RichTextPlugin ErrorBoundary={LexicalErrorBoundary} contentEditable={<ContentEditable className="min-h-[300px] border p-4" />} placeholder={<div>Type something...</div>} />
               <HistoryPlugin />
+              {/* <HeaderPlugin /> */}
               <OnChangePlugin onChange={()=> 0} />
             </div>
           </LexicalComposer>
@@ -67,4 +72,9 @@ export default function NoteEditor({ selectedNote, setSelectedNote }: { selected
       </div>
     )
   );
+}
+
+function HeaderPlugin() {
+  const [editor] = useLexicalComposerContext();
+
 }
