@@ -21,9 +21,6 @@ export function FontFamilyDropdown() {
         editor.update(() => {
           const selection = $getSelection();
           if ($isRangeSelection(selection)) {
-            //   selection.formatText("font-family", value);
-            console.log(event)
-            console.log(event.target.value)
             $patchStyleText(selection, {
               "font-family": value,
             });
