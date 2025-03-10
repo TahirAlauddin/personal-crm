@@ -34,6 +34,11 @@ export function FontFamilyDropdown() {
       <option value="inter">Inter</option>
       <option value="arial">Arial</option>
       <option value="helvetica">Helvetica</option>
+      <option value="cursive">Cursive</option>
+      <option value="fantasy">Fantasy</option>
+      <option value="monospace">Monospace</option>
+      <option value="sans-serif">Sans-serif</option>
+      <option value="serif">Serif</option>
     </select>
   );
 }
