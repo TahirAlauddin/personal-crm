@@ -62,7 +62,7 @@ export default function NoteEditor({ selectedNote, setSelectedNote }: { selected
 
           {/* Lexical Editor */}
             <div className="p-6">
-              <RichTextPlugin ErrorBoundary={LexicalErrorBoundary} contentEditable={<ContentEditable className="min-h-[300px] border p-4" />} placeholder={<div>Type something...</div>} />
+              <RichTextPlugin ErrorBoundary={LexicalErrorBoundary} contentEditable={<ContentEditable className="min-h-[300px] border p-4" />} />
               <HistoryPlugin />
               {/* <HeaderPlugin /> */}
               <OnChangePlugin onChange={()=> 0} />
