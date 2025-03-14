@@ -16,10 +16,10 @@ export default function Navbar({ children }: MyComponentProps) {
         <SearchBox />
       </div>
       <div className="flex gap-8">
-        <div className="flex items-center gap-3 text-neutral-80 text-sm font-medium">
-          <FileQuestion width={15} height={15} />
-          Help Center
-        </div>
+          <a className="flex items-center gap-3 text-neutral-80 text-sm font-medium" href="/helpcenter">
+            <FileQuestion width={15} height={15} />
+            Help Center
+          </a>
 
         {/* Profile dropdown with picture */}
         <div className="flex items-center gap-3 text-black">
