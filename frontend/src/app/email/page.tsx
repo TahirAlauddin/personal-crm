@@ -19,6 +19,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
+import { emailData } from "./data";
 
 export default function EmailPage() {
   const [activeTab, setActiveTab] = useState("all");
@@ -136,57 +137,20 @@ export default function EmailPage() {
 
         {/* Email List */}
         <div className="flex-1 overflow-y-auto">
-          <EmailItem
-            avatar="/placeholder.svg?height=40&width=40"
-            name="Dianne Russell"
-            subject="Start a blog to reach your creative peak"
-            preview="Hello, I'm having trouble navigating the site and finding the information I need. Can you assist me"
-            date="Dec 4, 2019"
-            likes={4}
-            comments={12}
-          />
-
-          <EmailItem
-            avatar="/placeholder.svg?height=40&width=40"
-            name="Annette Black"
-            subject="Helping a local business reinvent itself"
-            preview="Hello, I'm trying to submit a support ticket but I'm having trouble. Can you assist me with this?"
-            date="Dec 7, 2019"
-            likes={4}
-            comments={12}
-            hasLabel={true}
-            labelColor="blue"
-          />
-
-          <EmailItem
-            avatar="/placeholder.svg?height=40&width=40"
-            name="Robert Fox"
-            subject="Why choose a theme that looks good with WooCommerce"
-            preview="Hi, I've been waiting for a response to my support ticket for several days. Can you give me an updat"
-            date="Dec 7, 2019"
-            likes={4}
-            comments={12}
-          />
-
-          <EmailItem
-            avatar="/placeholder.svg?height=40&width=40"
-            name="Brooklyn Simmons"
-            subject="How to build a loyal community online and offline"
-            preview="Hello, I'm having trouble using a feature on the site. Can you provide me with some guidance or inst"
-            date="Dec 7, 2019"
-            likes={4}
-            comments={12}
-          />
-
-          <EmailItem
-            avatar="/placeholder.svg?height=40&width=40"
-            name="Leslie Alexander"
-            subject="How does writing influence your personal brand?"
-            preview="Hi there, I'm interested in learning more about the company's privacy policy. Can you direct me to t"
-            date="Dec 7, 2019"
-            likes={4}
-            comments={12}
-          />
+          {emailData.map((email, index) => (
+            <EmailItem
+              key={index}
+              avatar={email.avatar}
+              name={email.name}
+              subject={email.subject}
+              preview={email.preview}   
+              date={email.date}
+              likes={email.likes}
+              comments={email.comments}
+              hasLabel={email.hasLabel}
+              labelColor={email.labelColor}
+            />
+          ))}
         </div>
 
         {/* Pagination */}
