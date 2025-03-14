@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image"
 import {
   Inbox,
@@ -16,8 +18,11 @@ import {
   ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState } from "react";
 
 export default function EmailPage() {
+  const [activeTab, setActiveTab] = useState("all");
+  const [activeLabel, setActiveLabel] = useState("all");
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -26,43 +31,49 @@ export default function EmailPage() {
 
         <nav className="flex-1 overflow-y-auto">
           <ul className="space-y-1 p-2">
+              {/* all mails tab button */}
+              
             <li className="flex items-center justify-between px-3 py-2 rounded-md bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("all")} className="flex items-center">
                 <Inbox className="h-5 w-5 mr-3 text-gray-600" />
                 <span>All Mails</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">12</span>
             </li>
+            {/* favourites tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("favourites")} className="flex items-center">
                 <Star className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Favourites</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">2</span>
             </li>
+            {/* sent tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("sent")} className="flex items-center">
                 <Send className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Sent</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">8</span>
             </li>
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("archived")} className="flex items-center">
                 <Archive className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Archived</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">24</span>
             </li>
+            {/* spam tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("spam")} className="flex items-center">
                 <AlertCircle className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Spam</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">15</span>
             </li>
+            {/* trash tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div className="flex items-center">
+              <div onClick={() => setActiveTab("trash")} className="flex items-center">
                 <Trash2 className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Trash</span>
               </div>
