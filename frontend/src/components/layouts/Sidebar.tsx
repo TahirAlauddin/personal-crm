@@ -52,7 +52,7 @@ const items = {
     },
     {
       title: "Emails",
-      url: "#",
+      url: "/email",
       icon: Mail,
     },
     {

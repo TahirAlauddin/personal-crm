@@ -19,11 +19,25 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
-import { emailData } from "./data";
+import { emailData, favoritesEmailData } from "./data";
 
 export default function EmailPage() {
   const [activeTab, setActiveTab] = useState("all");
-  const [activeLabel, setActiveLabel] = useState("all");
+
+  const [emailDataToShow, setEmailDataToShow] = useState(emailData);
+  if (activeTab === "favourites") {
+    setEmailDataToShow(favoritesEmailData);
+  }
+
+  function setActiveTabCustom(tab: string) {
+    console.log(tab);
+    setActiveTab(tab);
+    if (tab === "favourites") {
+      setEmailDataToShow(favoritesEmailData);
+    } else {
+      setEmailDataToShow(emailData);
+    }
+  }
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -35,7 +49,7 @@ export default function EmailPage() {
               {/* all mails tab button */}
               
             <li className="flex items-center justify-between px-3 py-2 rounded-md bg-gray-100">
-              <div onClick={() => setActiveTab("all")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("all")} className="flex items-center">
                 <Inbox className="h-5 w-5 mr-3 text-gray-600" />
                 <span>All Mails</span>
               </div>
@@ -43,7 +57,7 @@ export default function EmailPage() {
             </li>
             {/* favourites tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div onClick={() => setActiveTab("favourites")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("favourites")} className="flex items-center">
                 <Star className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Favourites</span>
               </div>
@@ -51,14 +65,14 @@ export default function EmailPage() {
             </li>
             {/* sent tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div onClick={() => setActiveTab("sent")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("sent")} className="flex items-center">
                 <Send className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Sent</span>
               </div>
               <span className="text-xs bg-gray-200 px-2 py-1 rounded-full">8</span>
             </li>
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div onClick={() => setActiveTab("archived")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("archived")} className="flex items-center">
                 <Archive className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Archived</span>
               </div>
@@ -66,7 +80,7 @@ export default function EmailPage() {
             </li>
             {/* spam tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div onClick={() => setActiveTab("spam")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("spam")} className="flex items-center">
                 <AlertCircle className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Spam</span>
               </div>
@@ -74,7 +88,7 @@ export default function EmailPage() {
             </li>
             {/* trash tab button */}
             <li className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100">
-              <div onClick={() => setActiveTab("trash")} className="flex items-center">
+              <div onClick={() => setActiveTabCustom("trash")} className="flex items-center">
                 <Trash2 className="h-5 w-5 mr-3 text-gray-600" />
                 <span>Trash</span>
               </div>
