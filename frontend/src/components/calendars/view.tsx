@@ -21,15 +21,25 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
 import CRMCalendar from "@/components/calendars/wrapper";
 import { INITIAL_EVENTS, EVENT_TYPES } from "./dummy_events";
+import EventModal from "./add_events_modal";
+
+interface Event {
+  id: string;
+  title: string;
+  start: string;
+  backgroundColor: string;
+  borderColor: string;
+}
 
 export default function CalendarView() {
   const [events, setEvents] = useState(INITIAL_EVENTS);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState("monthly");
   const calendarRef = useRef<FullCalendar | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string>("");
 
   useEffect(() => {
     setCurrentDateUI(currentDate);
@@ -51,21 +61,23 @@ export default function CalendarView() {
   };
 
   const handleDateSelect = (selectInfo: DateSelectArg) => {
-    const title = prompt("Please enter a new event title");
-    if (title) {
-      const eventType =
-        Object.keys(EVENT_TYPES)[
-          Math.floor(Math.random() * Object.keys(EVENT_TYPES).length)
-        ];
-      const newEvent = {
-        id: String(events.length + 1),
-        title,
-        start: selectInfo.startStr,
-        backgroundColor: EVENT_TYPES[eventType as keyof typeof EVENT_TYPES],
-        borderColor: EVENT_TYPES[eventType as keyof typeof EVENT_TYPES],
-      };
-      setEvents([...events, newEvent]);
-    }
+    // const title = prompt("Please enter a new event title");
+    // if (title) {
+    //   const eventType =
+    //     Object.keys(EVENT_TYPES)[
+    //       Math.floor(Math.random() * Object.keys(EVENT_TYPES).length)
+    //     ];
+    //   const newEvent = {
+    //     id: String(events.length + 1),
+    //     title,
+    //     start: selectInfo.startStr,
+    //     backgroundColor: EVENT_TYPES[eventType as keyof typeof EVENT_TYPES],
+    //     borderColor: EVENT_TYPES[eventType as keyof typeof EVENT_TYPES],
+    //   };
+    //   setEvents([...events, newEvent]);
+    // }
+    setSelectedDate(selectInfo.start.toDateString);
+    setIsModalOpen(true);
   };
 
   const handlePrevMonth = () => {
@@ -95,6 +107,33 @@ export default function CalendarView() {
     if (calendarRef.current) {
       calendarRef.current.getApi().gotoDate(new Date());
     }
+  };
+
+  const handleAddEvent = () => {
+    setSelectedDate(currentDate.toDateString());
+    setIsModalOpen(true);
+  };
+
+  const handleSaveEvent = (eventData: Event) => {
+    const eventType = eventData.title.includes("Design")
+      ? "Design Review"
+      : eventData.title.includes("Meeting")
+      ? "Meeting"
+      : eventData.title.includes("Discussion")
+      ? "Discussion"
+      : eventData.title.includes("Market")
+      ? "Market Research"
+      : "New Goals";
+
+    const newEvent = {
+      id: String(events.length + 1),
+      title: eventData.title,
+      start: selectedDate,
+      backgroundColor: EVENT_TYPES[eventType],
+      borderColor: EVENT_TYPES[eventType],
+    };
+
+    setEvents([...events, newEvent]);
   };
 
   return (
@@ -133,6 +172,7 @@ export default function CalendarView() {
             variant="default"
             size="sm"
             className="flex items-center gap-1"
+            onClick={handleAddEvent}
           >
             <Plus className="h-4 w-4" />
             Add Event
@@ -142,17 +182,21 @@ export default function CalendarView() {
 
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center space-x-2">
-        <DropdownMenu>
+          <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="flex cursor-pointer items-center gap-1">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex cursor-pointer items-center gap-1"
+              >
                 <span>{format(currentDate, "MMMM yyyy")}</span>
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {Array.from({ length: 12 }, (_, i) => {
-                const date = new Date(currentDate)
-                date.setMonth(i)
+                const date = new Date(currentDate);
+                date.setMonth(i);
                 return (
                   <DropdownMenuItem
                     key={i}
@@ -160,7 +204,7 @@ export default function CalendarView() {
                   >
                     {format(date, "MMMM yyyy")}
                   </DropdownMenuItem>
-                )
+                );
               })}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -202,6 +246,13 @@ export default function CalendarView() {
           onDateSelect={handleDateSelect}
         />
       </div>
+
+      <EventModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveEvent}
+        defaultDate={new Date(selectedDate)}
+      />
     </div>
   );
 }
