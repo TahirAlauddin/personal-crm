@@ -11,6 +11,8 @@ interface TableRowProps {
   assignees: string[];
 }
 
+
+// add grid border between columns
 export function TableRow({
   title,
   dueDate,
@@ -19,15 +21,15 @@ export function TableRow({
   assignees,
 }: TableRowProps) {
   return (
-    <tr className="border-b">
-      <td className="px-4 py-3">{title}</td>
-      <td className="px-4 py-3">
+    <tr className="border-b border-gray-200">
+      <td className="px-4 py-3 border-r border-gray-200">{title}</td>
+      <td className="px-4 py-3 border-r border-gray-200">
         <div className="flex items-center">
           <Calendar className="h-4 w-4 mr-2 text-gray-500" />
           {dueDate}
         </div>
       </td>
-      <td className="px-4 py-3">
+      <td className="px-4 py-3 border-r border-gray-200">
         <div className="flex flex-wrap gap-1">
           {labels.map((label, idx) => (
             <span
@@ -39,13 +41,13 @@ export function TableRow({
           ))}
         </div>
       </td>
-      <td className="px-4 py-3">
+      <td className="px-4 py-3 border-r border-gray-200">
         <div className="flex items-center">
           <div className={`w-2 h-2 rounded-full mr-2 ${status.color}`}></div>
           <span>{status.text}</span>
         </div>
       </td>
-      <td className="px-4 py-3">
+      <td className="px-4 py-3 border-r border-gray-200">
         <div className="flex -space-x-2">
           {assignees.map((avatar, idx) => (
             <div

@@ -1,36 +1,54 @@
 import { TableRow } from "./TableRow";
 import { ChevronDown, Plus } from "lucide-react";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow as BaseTableRow,
+  TableHead,
+} from "@/components/ui/table";
+// add grid border between columns
 
 export function TableView() {
   return (
     <div className="border rounded-lg overflow-hidden">
-      <table className="w-full">
-        <thead>
-          <tr className="bg-gray-50 border-b">
-            <th className="px-4 py-3 text-left font-medium text-gray-500 flex items-center">
-              <span>Task Name</span>
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </th>
-            <th className="px-4 py-3 text-left font-medium text-gray-500 flex items-center">
-              <span>Due Date</span>
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </th>
-            <th className="px-4 py-3 text-left font-medium text-gray-500 flex items-center">
-              <span>Label</span>
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </th>
-            <th className="px-4 py-3 text-left font-medium text-gray-500 flex items-center">
-              <span>Status</span>
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </th>
-            <th className="px-4 py-3 text-left font-medium text-gray-500 flex items-center">
-              <span>Member</span>
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </th>
-            <th className="px-4 py-3"></th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table className="w-full">
+        <TableHeader>
+          <BaseTableRow className="bg-gray-50 border-b">
+            <TableHead className="px-4 py-3 text-left font-medium text-gray-500 items-center">
+              <button className="flex items-center">
+                <span>Task Name</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </button>
+            </TableHead>
+            <TableHead className="px-4 py-3 text-left font-medium text-gray-500 items-center">
+              <button className="flex items-center">
+                <span>Due Date</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </button>
+            </TableHead>
+            <TableHead className="px-4 py-3 text-left font-medium text-gray-500 items-center">
+              <button className="flex items-center">
+                <span>Label</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </button>
+            </TableHead>
+            <TableHead className="px-4 py-3 text-left font-medium text-gray-500 items-center">
+              <button className="flex items-center">
+                <span>Status</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </button>
+            </TableHead>
+            <TableHead className="px-4 py-3 text-left font-medium text-gray-500 items-center">
+              <button className="flex items-center">
+                <span>Member</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </button>
+            </TableHead>
+            <TableHead className="px-4 py-3"></TableHead>
+          </BaseTableRow>
+        </TableHeader>
+        <TableBody>
           <TableRow
             title="Monthly Product Discussion"
             dueDate="24 Jan 2023"
@@ -173,16 +191,16 @@ export function TableView() {
               "/placeholder.svg?height=24&width=24",
             ]}
           />
-          <tr>
+          <BaseTableRow>
             <td colSpan={6} className="px-4 py-3">
               <button className="flex items-center text-gray-500 hover:text-gray-700">
                 <Plus className="h-4 w-4 mr-2" />
                 New Task
               </button>
             </td>
-          </tr>
-        </tbody>
-      </table>
+          </BaseTableRow>
+        </TableBody>
+      </Table>
     </div>
   );
 }
