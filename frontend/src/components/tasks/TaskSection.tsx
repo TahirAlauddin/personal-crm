@@ -69,9 +69,15 @@ export function TaskSection({
                   checked={task.completed || false}
                   readOnly
                 />
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex flex-wrap gap-1">
+                <div className="w-full flex items-center justify-between gap-4">
+                  <h3 className="font-medium flex-1">{task.title}</h3>
+
+                  <div className="flex items-center text-sm text-gray-500 mr-2">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    <span>Due Date {task.dueDate}</span>
+                  </div>
+
+                    <div className="flex gap-1 mr-2">
                       {task.labels.map((label, idx) => (
                         <span
                           key={idx}
@@ -81,33 +87,30 @@ export function TaskSection({
                         </span>
                       ))}
                     </div>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex -space-x-2">
+                        {task.assignees.map((avatar, idx) => (
+                          <div
+                            key={idx}
+                            className="w-6 h-6 rounded-full border-2 border-white overflow-hidden"
+                          >
+                            <Image
+                              src={avatar || "/placeholder.svg"}
+                              alt="User avatar"
+                              width={24}
+                              height={24}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
                     <Button variant="ghost" size="icon" className="h-8 w-8">
                       <MoreHorizontal className="h-4 w-4" />
                     </Button>
-                  </div>
-                  <h3 className="font-medium mb-2">{task.title}</h3>
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    <span>Due Date {task.dueDate}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex -space-x-2">
-                      {task.assignees.map((avatar, idx) => (
-                        <div
-                          key={idx}
-                          className="w-6 h-6 rounded-full border-2 border-white overflow-hidden"
-                        >
-                          <Image
-                            src={avatar || "/placeholder.svg"}
-                            alt="User avatar"
-                            width={24}
-                            height={24}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                    
                 </div>
               </div>
             </div>

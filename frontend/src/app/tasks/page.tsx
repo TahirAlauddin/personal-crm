@@ -12,16 +12,17 @@ export default function TaskPage() {
   const [activeView, setActiveView] = useState("list");
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-4">
-          <h1 className="text-xl font-bold">Task</h1>
-          <Tabs
-            value={activeView}
-            onValueChange={setActiveView}
-            className="w-auto"
-          >
-            <TabsList>
+    <div className="container px-0 p-4">
+      <div className="flex flex-col justify-between items-center mb-4">
+        <Tabs
+          value={activeView}
+          onValueChange={setActiveView}
+          className="w-full"
+        >
+          <div className="flex items-center space-x-4 px-8 py-5">
+            <h1 className="text-xl font-bold">Tasks</h1>
+
+            <TabsList className="flex-1 bg-transparent justify-start">
               <TabsTrigger value="list" className="flex items-center">
                 <svg
                   className="w-4 h-4 mr-2"
@@ -82,6 +83,25 @@ export default function TaskPage() {
               </TabsTrigger>
             </TabsList>
 
+            {/* stick to end */}
+            <div className="flex items-center space-x-2">
+              <Button variant="outline" className="flex items-center">
+                <ListFilter className="h-4 w-4 mr-2" />
+                Sort By
+              </Button>
+              <Button variant="outline" className="flex items-center">
+                <Filter className="h-4 w-4 mr-2" />
+                Filter
+              </Button>
+              <Button className="bg-black text-white hover:bg-gray-800">
+                <Plus className="h-4 w-4 mr-2" />
+                Add Task
+              </Button>
+            </div>
+
+          </div>
+
+          <div className="border-t border-gray-200 p-8">
             <TabsContent value="list" className="mt-0">
               <ListView />
             </TabsContent>
@@ -93,23 +113,8 @@ export default function TaskPage() {
             <TabsContent value="table" className="mt-0">
               <TableView />
             </TabsContent>
-          </Tabs>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <Button variant="outline" className="flex items-center">
-            <ListFilter className="h-4 w-4 mr-2" />
-            Sort By
-          </Button>
-          <Button variant="outline" className="flex items-center">
-            <Filter className="h-4 w-4 mr-2" />
-            Filter
-          </Button>
-          <Button className="bg-black text-white hover:bg-gray-800">
-            <Plus className="h-4 w-4 mr-2" />
-            Add Task
-          </Button>
-        </div>
+          </div>
+        </Tabs>
       </div>
     </div>
   );
