@@ -7,9 +7,11 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ListView } from "@/components/tasks/ListView";
 import { KanbanView } from "@/components/tasks/KanbanView";
 import { TableView } from "@/components/tasks/TableView";
+import { AddTaskModal } from "@/components/tasks/AddTaskModal";
 
 export default function TaskPage() {
   const [activeView, setActiveView] = useState("list");
+  const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
 
   return (
     <div className="container px-0 p-4">
@@ -93,7 +95,10 @@ export default function TaskPage() {
                 <Filter className="h-4 w-4 mr-2" />
                 Filter
               </Button>
-              <Button className="bg-black text-white hover:bg-gray-800">
+              <Button 
+                className="bg-black text-white hover:bg-gray-800"
+                onClick={() => setIsAddTaskModalOpen(true)}
+              >
                 <Plus className="h-4 w-4 mr-2" />
                 Add Task
               </Button>
@@ -116,6 +121,11 @@ export default function TaskPage() {
           </div>
         </Tabs>
       </div>
+
+      <AddTaskModal 
+        isOpen={isAddTaskModalOpen}
+        onClose={() => setIsAddTaskModalOpen(false)}
+      />
     </div>
   );
 }
