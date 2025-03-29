@@ -15,6 +15,7 @@ interface TaskSectionProps {
   count: number;
   tasks: Task[];
   completed?: boolean;
+  setSelectedTask: (task: Task) => void;
 }
 
 export function TaskSection({
@@ -22,6 +23,7 @@ export function TaskSection({
   count,
   tasks,
   completed = false,
+  setSelectedTask,
 }: TaskSectionProps) {
   const [expanded, setExpanded] = useState(true);
 
@@ -61,7 +63,7 @@ export function TaskSection({
           </button>
 
           {tasks.map((task) => (
-            <div key={task.id} className="border rounded-md p-4">
+            <div key={task.id} className="border rounded-md p-4" onClick={() => setSelectedTask(task)}>
               <div className="flex items-start">
                 <input
                   type="checkbox"

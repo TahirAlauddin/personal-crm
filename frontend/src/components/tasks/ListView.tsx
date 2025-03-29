@@ -1,10 +1,58 @@
 import { Task } from "@/types/task";
 import { TaskSection } from "./TaskSection";
+import { TaskDetailsModal } from "./TaskDetailsModal";
+import { useState } from "react";
 
 export function ListView() {
-    return (
+  const [selectedTask, setSelectedTask] = useState<Task | null>({
+    id: 1,
+    title: "Monthly Product Discussion",
+    description: "Monthly Product Discussion by Design and Marketing Team with CEO to Plan our future product sales and reports.",
+    dueDate: "24 Jan 2023",
+    labels: [
+      { text: "Internal", color: "bg-amber-100 text-amber-800" },
+      { text: "Marketing", color: "bg-lime-100 text-lime-800" },
+      { text: "Urgent", color: "bg-rose-100 text-rose-800" },
+    ],
+    assignees: [
+      "/placeholder.svg?height=24&width=24",
+      "/placeholder.svg?height=24&width=24",
+      "/placeholder.svg?height=24&width=24",
+    ],
+    checklists: [
+      {
+        title: "Checklist 1",
+        items: [
+          { title: "Item 1", completed: false },
+          { title: "Item 2", completed: false },
+        ],
+      },
+      {
+        title: "Checklist 2",
+        items: [
+          { title: "Item 1", completed: false },
+          { title: "Item 2", completed: false },
+        ],
+      },
+    ],
+    activities: [
+      {
+        user: "John Doe",
+        action: "Created the task",
+        timestamp: "2023-01-24 10:00:00",
+      },
+      {
+        user: "Frank dward",
+        action: "mentioned you in a comment",
+        timestamp: "2023-01-24 10:00:00",
+      },
+    ],
+  });
+  
+  return (
     <div className="space-y-4">
       <TaskSection
+      setSelectedTask={setSelectedTask}
         title="Planned"
         count={3}
         tasks={[
@@ -52,9 +100,10 @@ export function ListView() {
             ],
           },
         ]}
-      />
+        />
 
       <TaskSection
+        setSelectedTask={setSelectedTask}
         title="Upcoming"
         count={5}
         tasks={[
@@ -134,6 +183,7 @@ export function ListView() {
       />
 
       <TaskSection
+        setSelectedTask={setSelectedTask}
         title="Completed"
         count={2}
         tasks={[
@@ -169,6 +219,12 @@ export function ListView() {
           },
         ]}
       />
+
+      <TaskDetailsModal
+        isOpen={!!selectedTask}
+        onClose={() => setSelectedTask(null)}
+        task={selectedTask}
+      />
     </div>
   );
-} 
+}
