@@ -8,16 +8,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch"
 import { Separator } from "@/components/ui/separator"
 
-export default function LanguageRegionSettings() {
+export function LanguageRegionSettings() {
   const [language, setLanguage] = useState("english")
   const [region, setRegion] = useState("united-states")
   const [startWeekOnMonday, setStartWeekOnMonday] = useState(true)
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
 
-      {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 w-full">
         <div className="max-w-3xl mx-auto py-8 px-8">
           <h1 className="text-2xl font-semibold mb-6">Language & Region</h1>
 
@@ -75,6 +73,5 @@ export default function LanguageRegionSettings() {
           </div>
         </div>
       </div>
-    </div>
   )
 }

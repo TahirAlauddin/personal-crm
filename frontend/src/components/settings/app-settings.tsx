@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { AppsTab } from "@/components/settings/tabs/apps";
 import { AccountTab } from "@/components/settings/tabs/account";
 import { NotificationTab } from "@/components/settings/tabs/notification";
-import { LanguageTab } from "@/components/settings/tabs/language";
+import { LanguageRegionSettings } from "@/components/settings/tabs/language";
 import { WorkspaceGeneralTab } from "@/components/settings/tabs/workspace-general";
 import { WorkspaceMembersTab } from "@/components/settings/tabs/workspace-members";
 import { WorkspaceBillingTab } from "@/components/settings/tabs/workspace-billing";
@@ -21,7 +21,7 @@ export function AppSettings() {
       case "/settings/notification":
         return <NotificationTab />;
       case "/settings/language":
-        return <LanguageTab />;
+        return <LanguageRegionSettings />;
       case "/settings/workspace/general":
         return <WorkspaceGeneralTab />;
       case "/settings/workspace/members":
