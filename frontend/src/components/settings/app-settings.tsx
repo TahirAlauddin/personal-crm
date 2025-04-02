@@ -1,80 +1,37 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { SettingsGroup } from "@/components/ui/settings/group";
-import { SettingsSection } from "@/components/ui/settings/section";
-import { Switch } from "@/components/ui/switch";
-import Dropdown from "../Dropdown";
+import { usePathname } from "next/navigation";
+import { AppsTab } from "@/components/settings/tabs/apps";
+import { AccountTab } from "@/components/settings/tabs/account";
+import { NotificationTab } from "@/components/settings/tabs/notification";
+import { LanguageTab } from "@/components/settings/tabs/language";
+import { WorkspaceGeneralTab } from "@/components/settings/tabs/workspace-general";
+import { WorkspaceMembersTab } from "@/components/settings/tabs/workspace-members";
+import { WorkspaceBillingTab } from "@/components/settings/tabs/workspace-billing";
 
-export function AppsSettings() {
-  return (
-    <div className="flex flex-col gap-9 p-8">
-      <SettingsSection
-        title="Apps Settings"
-        >
-        {/* Startup settings */}
-        <SettingsGroup
-          title="Startup Settings"
-          description="Choose what to show when Apps starts or when you switch workspaces."
-          action={
+export function AppSettings() {
+  const pathname = usePathname();
 
-            <Button variant="outline">
-              Last Visited Page
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          }
-        >
-          {/* Add startup settings controls here */}
-        </SettingsGroup>
-      </SettingsSection>
+  const renderContent = () => {
+    switch (pathname) {
+      case "/settings/apps":
+        return <AppsTab />;
+      case "/settings/account":
+        return <AccountTab />;
+      case "/settings/notification":
+        return <NotificationTab />;
+      case "/settings/language":
+        return <LanguageTab />;
+      case "/settings/workspace/general":
+        return <WorkspaceGeneralTab />;
+      case "/settings/workspace/members":
+        return <WorkspaceMembersTab />;
+      case "/settings/workspace/billing":
+        return <WorkspaceBillingTab />;
+      default:
+        return <AppsTab />;
+    }
+  };
 
-      {/* Timezone settings */}
-      <SettingsSection title="Date and Time">
-        <SettingsGroup
-          title="Set timezone automatically using your location"
-          description="Reminders, notifications and emails are delivered based on your time zone."
-          action={<Switch />}
-        >
-         </SettingsGroup>
-         <SettingsGroup
-          title="Time Zone"
-          description="Current time zone setting."
-          action={
-            <Button variant="outline">
-            (GMT-07:00) US/Arizona (MST)
-            <ChevronDown className="ml-2 h-4 w-4" />
-          </Button>
-          }
-        ></SettingsGroup>
-      </SettingsSection>
-
-      {/* Privacy settings */}
-      <SettingsSection title="Privacy">
-        {/* Cookie settings */}
-        <SettingsGroup
-          title="Cookie Settings"
-          description="Customize cookies. See Cookies Notice for details."
-          action={
-            <Button variant="outline">
-              Customize
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          }
-        />
-        {/* View history */}
-        <SettingsGroup
-          title="Show my view history"
-          description="People with edit or full access will be able to see when you've viewed a page."
-          action={<Switch />}
-        />
-      </SettingsSection>
-    </div>
-  );
+  return renderContent();
 }
