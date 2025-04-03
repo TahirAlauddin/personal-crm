@@ -1,6 +1,6 @@
 "use client";
 
-import WorkspacePreferences from "@/components/settings/workspace-preference";
+import WorkspacePreferences from "@/components/settings/workspace-general";
 
 export function WorkspaceGeneralTab() {
   return (
