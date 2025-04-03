@@ -1,0 +1,54 @@
+/* Custom styles for FullCalendar */
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: #e5e7eb;
+}
+
+.fc .fc-daygrid-day-number {
+  padding: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.fc .fc-col-header-cell-cushion {
+  padding: 8px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.fc-day-today {
+  background-color: #f0ffca !important;
+}
+
+.fc-event {
+  border-radius: 2px;
+  border: none !important;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.fc-h-event .fc-event-main {
+  color: #374151 !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(239, 246, 255, 0.5);
+}
+
+.fc .fc-button-primary {
+  background-color: transparent;
+  border-color: #e5e7eb;
+  color: #374151;
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.fc-daygrid-day-events {
+  margin-top: 4px;
+}
+
