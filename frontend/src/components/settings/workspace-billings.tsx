@@ -91,7 +91,7 @@ export default function PaymentManagement() {
               </div>
 
               {/* PayPal */}
-              <div className="border rounded-md p-3 flex items-center justify-between">
+              <div className="border rounded-md p-3 flex gap-2 items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
                   <span className="text-sm">Paypal (bria***@example.com)</span>
