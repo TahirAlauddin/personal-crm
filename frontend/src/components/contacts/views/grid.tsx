@@ -14,7 +14,6 @@ export default function GridView({ contacts, onContactClick }: GridViewProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {contacts.map((contact) => (
-        // <div key={contact.id} className="border rounded-lg p-4 bg-white">
         <div
           key={contact.id}
           className="border rounded-lg p-4 bg-white cursor-pointer hover:shadow-md transition-shadow"
@@ -34,7 +33,6 @@ export default function GridView({ contacts, onContactClick }: GridViewProps) {
               </div>
             </div>
             <DropdownMenu>
-              {/* <DropdownMenuTrigger asChild> */}
               <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
                   <MoreVertical className="h-4 w-4" />
@@ -62,7 +60,6 @@ export default function GridView({ contacts, onContactClick }: GridViewProps) {
           <div className="space-y-2 mb-3">
             <div className="flex items-center gap-2 text-sm">
               <Mail className="h-4 w-4 text-gray-500" />
-            {/* <a href={`mailto:${contact.email}`} className="text-blue-600 hover:underline truncate"> */}
               <a
                 href={`mailto:${contact.email}`}
                 className="text-blue-600 hover:underline truncate"

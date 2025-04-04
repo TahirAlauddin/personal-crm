@@ -1,5 +1,6 @@
 "use client";
 
+import EmptyState from "@/components/empty-state"
 import { useState } from "react";
 import {
   List,
@@ -219,10 +220,6 @@ export default function ContactsManager() {
 
       {/* View Content */}
       <div className="mb-4">
-        {/* {viewType === "list" && <ListView contacts={filteredContacts} />}
-        {viewType === "kanban" && <KanbanView contacts={filteredContacts} />}
-        {viewType === "table" && <TableView contacts={filteredContacts} />}
-        {viewType === "grid" && <GridView contacts={filteredContacts} />} */}
         {viewType === "list" && (
           <ListView
             contacts={filteredContacts}
