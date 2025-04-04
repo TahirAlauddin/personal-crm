@@ -1,26 +1,32 @@
-import { Phone, Mail, MoreVertical, Plus } from 'lucide-react'
+"use client"
+
+import { Phone, Mail, MoreVertical, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Contact } from "@/lib/data/contacts"
+import type { Contact } from "@/lib/data/contacts"
 
 interface KanbanViewProps {
   contacts: Contact[]
+  onContactClick: (contact: Contact) => void
 }
 
-export default function KanbanView({ contacts }: KanbanViewProps) {
+export default function KanbanView({ contacts, onContactClick }: KanbanViewProps) {
   // Group contacts by category
-  const groupedContacts = contacts.reduce((acc, contact) => {
-    const category = contact.category;
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(contact);
-    return acc;
-  }, {} as Record<string, Contact[]>);
+  const groupedContacts = contacts.reduce(
+    (acc, contact) => {
+      const category = contact.category
+      if (!acc[category]) {
+        acc[category] = []
+      }
+      acc[category].push(contact)
+      return acc
+    },
+    {} as Record<string, Contact[]>,
+  )
 
   // Get unique categories
-  const categories = Object.keys(groupedContacts);
+  const categories = Object.keys(groupedContacts)
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -37,10 +43,14 @@ export default function KanbanView({ contacts }: KanbanViewProps) {
               <Plus className="h-4 w-4" />
             </Button>
           </div>
-          
+
           <div className="space-y-3">
             {groupedContacts[category].map((contact) => (
-              <div key={contact.id} className="bg-white rounded-lg p-4 shadow-sm">
+              <div
+                key={contact.id}
+                className="bg-white rounded-lg p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => onContactClick(contact)}
+              >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <Avatar>
@@ -55,7 +65,7 @@ export default function KanbanView({ contacts }: KanbanViewProps) {
                     </div>
                   </div>
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
                       <Button variant="ghost" size="icon" className="h-8 w-8">
                         <MoreVertical className="h-4 w-4" />
                       </Button>
@@ -66,11 +76,15 @@ export default function KanbanView({ contacts }: KanbanViewProps) {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-                
+
                 <div className="space-y-2 mt-3">
                   <div className="flex items-center gap-2 text-sm">
                     <Mail className="h-4 w-4 text-gray-500" />
-                    <a href={`mailto:${contact.email}`} className="text-blue-600 hover:underline">
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="text-blue-600 hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       {contact.email}
                     </a>
                   </div>
@@ -79,8 +93,8 @@ export default function KanbanView({ contacts }: KanbanViewProps) {
                     <span>{contact.phone}</span>
                   </div>
                 </div>
-                
-                <div className="flex gap-2 mt-3">
+
+                <div className="flex gap-2 mt-3" onClick={(e) => e.stopPropagation()}>
                   <Button variant="outline" size="sm" className="flex-1">
                     <Phone className="h-3 w-3 mr-1" />
                     Call
@@ -98,3 +112,4 @@ export default function KanbanView({ contacts }: KanbanViewProps) {
     </div>
   )
 }
+

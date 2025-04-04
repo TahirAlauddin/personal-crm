@@ -1,16 +1,18 @@
-import { Phone, Mail, MoreVertical } from 'lucide-react'
+"use client"
+
+import { Phone, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Contact } from "@/lib/data/contacts"
+import type { Contact } from "@/lib/data/contacts"
 
 interface ListViewProps {
   contacts: Contact[]
+  onContactClick: (contact: Contact) => void
 }
 
-export default function ListView({ contacts }: ListViewProps) {
+export default function ListView({ contacts, onContactClick }: ListViewProps) {
   return (
     <div className="border rounded-lg overflow-hidden">
       <table className="w-full">
@@ -44,8 +46,12 @@ export default function ListView({ contacts }: ListViewProps) {
         </thead>
         <tbody>
           {contacts.map((contact, index) => (
-            <tr key={contact.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-              <td className="p-3">
+            <tr
+              key={contact.id}
+              className={`${index % 2 === 0 ? "bg-white" : "bg-gray-50"} cursor-pointer hover:bg-gray-100`}
+              onClick={() => onContactClick(contact)}
+            >
+              <td className="p-3" onClick={(e) => e.stopPropagation()}>
                 <Checkbox />
               </td>
               <td className="p-3">
@@ -58,18 +64,22 @@ export default function ListView({ contacts }: ListViewProps) {
                 </div>
               </td>
               <td className="p-3">
-                <a href={`mailto:${contact.email}`} className="text-blue-600 hover:underline">
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="text-blue-600 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {contact.email}
                 </a>
               </td>
               <td className="p-3">{contact.phone}</td>
               <td className="p-3">
-                <Badge 
-                  variant="outline" 
+                <Badge
+                  variant="outline"
                   className={`
-                    ${contact.category === 'Employee' ? 'bg-purple-50 text-purple-600' : ''}
-                    ${contact.category === 'Customers' ? 'bg-blue-50 text-blue-600' : ''}
-                    ${contact.category === 'Partners' ? 'bg-orange-50 text-orange-600' : ''}
+                    ${contact.category === "Employee" ? "bg-purple-50 text-purple-600" : ""}
+                    ${contact.category === "Customers" ? "bg-blue-50 text-blue-600" : ""}
+                    ${contact.category === "Partners" ? "bg-orange-50 text-orange-600" : ""}
                   `}
                 >
                   {contact.category}
@@ -77,7 +87,7 @@ export default function ListView({ contacts }: ListViewProps) {
               </td>
               <td className="p-3">{contact.location}</td>
               <td className="p-3">{contact.gender}</td>
-              <td className="p-3">
+              <td className="p-3" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center gap-1">
                   <Button variant="outline" size="sm" className="h-8">
                     <Phone className="h-3 w-3 mr-1" />
@@ -96,3 +106,4 @@ export default function ListView({ contacts }: ListViewProps) {
     </div>
   )
 }
+
