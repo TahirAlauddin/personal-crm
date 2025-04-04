@@ -1,6 +1,6 @@
 "use client";
 
-import EmptyState from "@/components/empty-state"
+import EmptyState from "@/components/empty-state";
 import { useState } from "react";
 import {
   List,
@@ -220,89 +220,45 @@ export default function ContactsManager() {
 
       {/* View Content */}
       <div className="mb-4">
-        {viewType === "list" && (
-          <ListView
-            contacts={filteredContacts}
-            onContactClick={handleContactClick}
-          />
-        )}
-        {viewType === "kanban" && (
-          <KanbanView
-            contacts={filteredContacts}
-            onContactClick={handleContactClick}
-          />
-        )}
-        {viewType === "table" && (
-          <TableView
-            contacts={filteredContacts}
-            onContactClick={handleContactClick}
-          />
-        )}
-        {viewType === "grid" && (
-          <GridView
-            contacts={filteredContacts}
-            onContactClick={handleContactClick}
-          />
+        {filteredContacts.length === 0 ? (
+          <EmptyState onAddContact={() => setIsCreateModalOpen(true)} />
+        ) : (
+          <>
+            {viewType === "list" && (
+              <ListView
+                contacts={filteredContacts}
+                onContactClick={handleContactClick}
+              />
+            )}
+            {viewType === "kanban" && (
+              <KanbanView
+                contacts={filteredContacts}
+                onContactClick={handleContactClick}
+              />
+            )}
+            {viewType === "table" && (
+              <TableView
+                contacts={filteredContacts}
+                onContactClick={handleContactClick}
+              />
+            )}
+            {viewType === "grid" && (
+              <GridView
+                contacts={filteredContacts}
+                onContactClick={handleContactClick}
+              />
+            )}
+          </>
         )}
       </div>
 
-      {/* Pagination (for List and Table views) */}
-      {(viewType === "list" || viewType === "table") && (
-        <div className="flex items-center justify-between mt-4 border-t pt-4">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-500">Show</span>
-            <Select
-              value={rowsPerPage.toString()}
-              onValueChange={(value) => setRowsPerPage(parseInt(value))}
-            >
-              <SelectTrigger className="w-16 h-8">
-                <SelectValue placeholder="10" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="10">10</SelectItem>
-                <SelectItem value="25">25</SelectItem>
-                <SelectItem value="50">50</SelectItem>
-              </SelectContent>
-            </Select>
-            <span className="text-sm text-gray-500">Row</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Button
-              variant="outline"
-              size="icon"
-              className="w-8 h-8"
-              disabled={currentPage === 1}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-8 h-8 bg-black text-white"
-            >
-              1
-            </Button>
-            <Button variant="outline" size="sm" className="w-8 h-8">
-              2
-            </Button>
-            <Button variant="outline" size="sm" className="w-8 h-8">
-              3
-            </Button>
-            <Button variant="outline" size="sm" className="w-8 h-8">
-              4
-            </Button>
-            <Button variant="outline" size="sm" className="w-8 h-8">
-              5
-            </Button>
-            <span className="mx-1">...</span>
-            <Button variant="outline" size="sm" className="w-8 h-8">
-              10
-            </Button>
-            <Button variant="outline" size="icon" className="w-8 h-8">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
+      {/* Pagination (for List and Table views) only if there are contacts */}
+      {filteredContacts.length > 0 && (viewType === "list" || viewType === "table") && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(filteredContacts.length / rowsPerPage)}
+            onPageChange={setCurrentPage}
+          />
       )}
 
       {/* Create Contact Modal */}
@@ -320,4 +276,68 @@ export default function ContactsManager() {
       />
     </div>
   );
+}
+
+const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: number; totalPages: number; onPageChange: (page: number) => void }) => {
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  return (
+    <div className="flex items-center justify-between mt-4 border-t pt-4">
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-500">Show</span>
+            <Select
+              value={rowsPerPage.toString()}
+              onValueChange={(value) => setRowsPerPage(parseInt(value))}
+            >
+              <SelectTrigger className="w-16 h-8">
+                <SelectValue placeholder="10" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="10">10</SelectItem>
+                <SelectItem value="25">25</SelectItem>
+                <SelectItem value="50">50</SelectItem>
+              </SelectContent>
+            </Select>
+            <span className="text-sm text-gray-500">Row</span>
+          </div>
+          
+
+          
+    <div className="flex items-center gap-1">
+    <Button
+      variant="outline"
+      size="icon"
+      className="w-8 h-8"
+      disabled={currentPage === 1}
+      >
+      <ChevronLeft className="h-4 w-4" />
+    </Button>
+    <Button
+      variant="outline"
+      size="sm"
+      className="w-8 h-8 bg-black text-white"
+      >
+      1
+    </Button>
+    <Button variant="outline" size="sm" className="w-8 h-8">
+      2
+    </Button>
+    <Button variant="outline" size="sm" className="w-8 h-8">
+      3
+    </Button>
+    <Button variant="outline" size="sm" className="w-8 h-8">
+      4
+    </Button>
+    <Button variant="outline" size="sm" className="w-8 h-8">
+      5
+    </Button>
+    <span className="mx-1">...</span>
+    <Button variant="outline" size="sm" className="w-8 h-8">
+      10
+    </Button>
+    <Button variant="outline" size="icon" className="w-8 h-8">
+      <ChevronRight className="h-4 w-4" />
+    </Button>
+      </div>
+  </div>
+  )
 }

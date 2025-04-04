@@ -25,7 +25,7 @@ export default function EmptyState({ onAddContact }: EmptyStateProps) {
         </div>
         <div className="absolute bottom-2 left-[-10px]">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 19C11 15 18 10 19 1" stroke="#D1D5DB" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M1 19C11 15 18 10 19 1" stroke="#D1D5DB" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </div>
       </div>
