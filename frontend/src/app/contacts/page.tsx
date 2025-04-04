@@ -1,12 +1,10 @@
-import React from 'react';
-import ContactsList from '@/components/ContactsList';
+import ContactsManager from "@/components/contacts/manager"
 
-const ContactsPage = () => {
+export default function Home() {
   return (
-    <div className="p-4">
-      <ContactsList />
-    </div>
-  );
-};
+    <main className="min-h-screen bg-white">
+      <ContactsManager />
+    </main>
+  )
+}
 
-export default ContactsPage; 
