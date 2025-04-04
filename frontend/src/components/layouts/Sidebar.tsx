@@ -69,7 +69,7 @@ const items = {
     },
     {
       title: "Contacts",
-      url: "/customers",
+      url: "/contacts",
       icon: Contact2Icon,
     },
     {
